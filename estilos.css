@@ -1,0 +1,456 @@
+/* ============================================
+   FUENTES (archivos .ttf de la carpeta "fuentes")
+   ============================================ */
+
+/* Fuente de títulos y textos largos */
+@font-face {
+  font-family: "Rayuela";
+  src: url("fuentes/rayuela.ttf");
+}
+
+/* Fuente de los botones y textos generales */
+@font-face {
+  font-family: "Clother";
+  src: url("fuentes/clother.ttf");
+}
+
+/* ============================================
+   COLORES (si quieres cambiar uno, lo cambias aquí)
+   ============================================ */
+:root {
+  --azul: #0a6cff;
+  --rosado: #ff8cc6;
+  --verde: #0db14b;
+  --naranja: #ff6b35;
+  --negro: #111111;
+  --fondo: #fdfcf5;
+}
+
+/* ============================================
+   FONDO DE CUADERNO (cuadrícula)
+   ============================================ */
+* {
+  box-sizing: border-box; /* hace que los tamaños sean más fáciles de calcular */
+}
+
+body {
+  margin: 0;
+  font-family: "Clother", sans-serif;
+  background-color: var(--fondo);
+  /* Dos degradados forman las líneas horizontales y verticales */
+  background-image:
+    linear-gradient(to right, #dde6f3 1px, transparent 1px),
+    linear-gradient(to bottom, #dde6f3 1px, transparent 1px);
+  background-size: 28px 28px; /* tamaño de cada cuadrito */
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL (tamaño celular)
+   ============================================ */
+.pagina {
+  width: 100%;
+  max-width: 420px;   /* nunca más ancho que un celular */
+  min-height: 100vh;  /* ocupa toda la altura de la pantalla */
+  margin: 0 auto;     /* lo centra en pantallas grandes */
+  padding: 25px 25px;
+}
+
+/* ============================================
+   ENCABEZADO
+   ============================================ */
+.encabezado {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+
+/* Si usas una imagen de logo, este estilo la ajusta */
+.logo {
+  width: 200px;
+  max-width: 300px;
+  padding: 20px 0 20px 0;
+}
+
+.frase {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--negro);
+  line-height: 1.4;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+
+.botones {
+  display: flex;
+  flex-direction: column; /* uno debajo del otro */
+  gap: 20px;              /* espacio entre botones */
+}
+
+.textoboton{
+  padding-bottom: 5px;
+}
+
+
+.boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;              /* espacio entre icono y texto */
+  padding: 16px 10px;
+  height: 55px;            /* ← altura fija: todos los botones miden lo mismo */
+  border-radius: 50px;    /* bordes muy redondeados */
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 100;
+  text-decoration: none;  /* quita el subrayado del enlace */
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2); /* "grosor" del botón */
+
+  /* Hace que los cambios (subir, bajar) sean suaves */
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Colores de cada botón */
+.boton-azul    { background-color: var(--azul); }
+.boton-rosado  { background-color: var(--rosado); }
+.boton-verde   { background-color: var(--verde); }
+.boton-naranja { background-color: var(--naranja); }
+
+.iconolapiz{
+  width: 50px;
+  height: auto;
+  transform: rotate(70deg);
+  margin-right: -12px; 
+}
+
+.icono {
+  width: 45px;             /* ancho de la caja del icono */
+  height: 45px;            /* alto de la caja del icono */
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-size: 1.8rem;       /* esto solo afecta si el icono es un emoji */
+}
+
+.iconosol{
+  width: 40px;
+  height: auto;
+}
+
+.iconocua{
+  width: 26px;
+  height: auto;
+}
+
+.nombre-manuscrito {
+  font-style: normal; /* quita la cursiva automática */
+}
+
+/* ---- ANIMACIÓN: cuando pasas el mouse, el botón sube ---- */
+.boton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ---- ANIMACIÓN: cuando lo presionas, el botón se hunde ---- */
+.boton:active {
+  transform: translateY(5px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   REDES SOCIALES
+   ============================================ */
+.redes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.red-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--negro);
+  border-radius: 14px;
+  color: var(--negro);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.red-social:hover {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.red-social:active {
+  transform: scale(0.9);
+}
+
+/* ============================================
+   PANTALLAS MUY PEQUEÑAS (celulares angostos)
+   ============================================ */
+@media (max-width: 360px) {
+  .logo-texto { font-size: 3.5rem; }
+  .boton      { font-size: 1.1rem; }
+}
+
+
+/* ################################################
+   PÁGINAS INTERNAS
+   ################################################ */
+
+.pagina-interna {
+  position: relative;
+  padding-bottom: 30px; /* espacio para las decoraciones de abajo */
+}
+
+/* ---- Enlace "Volver" ---- */
+.volver {
+  display: inline-block;
+  color: var(--negro);
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+  margin-bottom: 18px;
+}
+.volver:hover { transform: translateX(-4px); }
+
+/* ---- Títulos a mano ---- */
+.titulo-pagina {
+  margin: 0 0 30px 0;
+  font-family: "Rayuela", cursive;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.1;
+}
+.titulo-pagina span { display: inline-block; }
+.titulo-grande { font-size: 3.5rem; }
+
+.color-rosado  { 
+  color: var(--rosado); 
+  font-size: 3rem;
+}
+
+.color-naranja { color: var(--naranja); }
+.color-verde   { color: var(--verde); }
+
+.titulo-pagina2 {
+  margin: -10px 0 30px 0;
+  font-family: "Rayuela", cursive;
+  font-weight: 400;
+  text-align: center;
+  line-height: 0.68;
+}
+
+/* ---- Textos a mano ---- */
+.texto-pagina {
+  font-family: "Rayuela", cursive;
+  font-size: 1.5rem;
+  line-height: 0.9;
+  margin: 0 0px 22px 0px;
+}
+
+.texto-centrado  { text-align: center; }
+.texto-izquierda { text-align: left; font-size: 1.45rem; margin: 0 12px 22px 6px;}
+.texto-derecha   { text-align: right; font-size: 1.45rem;margin: 0 2px 22px 12px;}
+.texto-derecha2   { text-align: right; font-size: 1.45rem;margin: 0 8px 22px 24px;}
+
+
+/* ---- Decoraciones de abajo (emojis o imágenes) ---- */
+.decoracion {
+  position: absolute;
+  bottom: 20px;
+  font-size: 4rem;
+}
+.decoracion-centro    {
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 90%;
+}
+.decoracion-izquierda {
+  left: 20px;  
+  width: 60%;
+  transform: rotate(10deg);
+}
+.decoracion-derecha {
+  width: 45%;
+  right: -60px;   /* se sale 40px por la derecha */
+  bottom: -50px;  /* se sale 40px por abajo */
+}
+
+
+.decoracion img {
+  display: block;       /* quita un espacio raro debajo de la imagen */
+  width: 100%;          /* la imagen ocupa todo el ancho de su caja */
+  height: auto;         /* mantiene las proporciones, no se deforma */
+  filter: drop-shadow(3px 5px 3px rgba(0, 0, 0, 0.3));
+}
+
+.decoracion img {
+  filter:
+    drop-shadow(2px 0 0 var(--fondo))
+    drop-shadow(-2px 0 0 var(--fondo))
+    drop-shadow(0 2px 0 var(--fondo))
+    drop-shadow(0 -2px 0 var(--fondo))
+    drop-shadow(3px 5px 2.5px rgba(0, 0, 0, 0.2));
+}
+
+/* ---- Botón azul de la cartilla ---- */
+.boton-cartilla {
+  font-size: 1.15rem;
+  padding: 12px 20px;
+  margin: 0 20px 40px 20px;
+  height: 40px;
+}
+
+/* ================= PÁGINA: CÓMO DONAR ================= */
+
+.nube {
+  background-color: #b9d3d6;
+  border-radius: 60px;
+  padding: 40px 20px;
+  text-align: center;
+}
+.nube-titulo {
+  margin: 0;
+  font-family: "Rayuela", cursive;
+  font-weight: 400;
+  font-size: 2.6rem;
+  color: var(--naranja);
+}
+.nube-subtitulo {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* Cuadros de colores (se reutilizan arriba y abajo) */
+.bloque {
+  flex: 1;
+  padding: 18px 10px;
+  text-align: center;
+  font-family: "Rayuela", cursive;
+  font-size: 1.8rem;
+}
+.bloque-amarillo { background-color: #ffe033; }
+.bloque-naranja  { background-color: var(--naranja); }
+.bloque-azul     { background-color: var(--azul);  color: #ffd84d; }
+.bloque-verde    { background-color: var(--verde); color: #ffd84d; }
+.bloque-rosado   { background-color: #ffb3da;      color: var(--azul); }
+
+.bloques-arriba,
+.bloques-abajo {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+}
+.bloques-arriba .bloque { padding: 30px; }
+
+.bloque-aporte {
+  width: 40%;
+  margin: 0 auto;
+  flex: none;
+}
+
+/* Marco rosado del QR */
+.marco-qr {
+  width: 100%;
+  
+}
+.marco-qr img {
+  display: block;
+  width: 100%;
+}
+
+/* La página de donar no necesita espacio extra abajo */
+.pagina-interna:has(.nube) { padding-bottom: 20%;   overflow: hidden;}
+
+/* ================= TÍTULO: ¿Qué es Rayuela? ================= */
+
+.titulo-rayuela {
+  margin: 0 0 30px 0;
+  font-family: "Rayuela", cursive;
+  font-weight: 400;
+  line-height: 0.6;
+}
+
+/* Cada fila es una línea: sus elementos quedan uno al lado del otro */
+.fila-arriba,
+.fila-abajo {
+  display: flex;
+  align-items: center;   /* alinea texto e imagen al centro verticalmente */
+  gap: 10px;             /* espacio entre texto e imagen */
+}
+
+/* Fila de arriba: más pequeña y movida a la derecha */
+.fila-arriba {
+  padding-left: 50px;    /* mueve "¿Qué es" hacia la derecha */
+  font-size: 2rem;
+}
+
+/* Fila de abajo: "Rayuela?" grande */
+.fila-abajo {
+  font-size: 3.8rem;
+}
+
+/* Imágenes */
+.linea-verde {
+  width: 150px;
+}
+
+.crayon {
+  width: 100px;
+  margin-left: -28px;    /* lo saca un poco hacia el borde izquierdo */
+    filter: drop-shadow(3px 5px 3px rgba(0, 0, 0, 0.3));
+}
+
+/* ================= TÍTULO: La Selva que nos enseña ================= */
+
+.titulo-selva {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* ← centra cada fila en la mitad de la página */
+  margin: 0 0 20px 0;
+  font-family: "Rayuela", cursive;
+  font-weight: 400;
+  line-height: 0.8;
+}
+
+/* Fila 1: "La Selva" (ya no necesita padding-left) */
+.selva-fila-1 {
+  font-size: 4.5rem;
+}
+
+/* Fila 2: "que nos" (centrado, con un pequeño empujón a la derecha) */
+.selva-fila-2 {
+  font-size: 3.2rem;
+  margin-top: -10px;
+  position: relative;
+  left: 60px;               /* ← mueve "que nos" a la derecha; pon 0 para centrarlo exacto */
+}
+
+/* Fila 3: imagen + "enseña" */
+.selva-fila-3 {
+  display: flex;
+  align-items: center;      /* alinea imagen y texto al centro */
+  gap: 10px;
+  font-size: 4.2rem;
+  margin-top: -10px;        /* sube la fila para acercarla a "que nos" */
+}
+
+/* La raya azul */
+.raya-azul {
+  width: 110px;
+  margin: -25px -10px 0 0;        /* sube la fila para acercarla a "que nos" */
+}
+
+.sol{
+
+}
