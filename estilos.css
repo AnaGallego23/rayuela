@@ -50,7 +50,8 @@ body {
 .pagina {
   width: 100%;
   max-width: 420px;   /* nunca más ancho que un celular */
-  min-height: 100vh;  /* ocupa toda la altura de la pantalla */
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0 auto;     /* lo centra en pantallas grandes */
   padding: 25px 25px;
 }
@@ -211,7 +212,10 @@ body {
 
 .pagina-interna {
   position: relative;
-  padding-bottom: 30px; /* espacio para las decoraciones de abajo */
+  padding-bottom: 140px;
+  height: 100vh;       /* respaldo */
+  height: 100dvh;      /* ← altura exacta de lo que se ve en el celular */
+  overflow: hidden;    /* ← corta lo que sobre, así no hay scroll */
 }
 
 /* ---- Enlace "Volver" ---- */
@@ -255,7 +259,7 @@ body {
 /* ---- Textos a mano ---- */
 .texto-pagina {
   font-family: "Rayuela", cursive;
-  font-size: 1.5rem;
+  font-size: clamp(0.8rem, 2.1vh, 1.5rem);
   line-height: 0.9;
   margin: 0 0px 22px 0px;
 }
